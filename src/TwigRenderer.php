@@ -45,7 +45,7 @@ class TwigRenderer implements RenderInterface
         if (!isset($ro->headers['content-type'])) {
             $ro->headers['content-type'] = 'text/html; charset=utf-8';
         }
-        if ($ro->code === Code::NO_CONTENT) {
+        if ($ro->code === Code::NO_CONTENT || $ro->uri->method === 'options') {
             $ro->view = '';
         }
         if ($ro->view === '') {
